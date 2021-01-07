@@ -21,9 +21,9 @@ FROM golang:1.15.6-alpine AS GO_BUILD
 
 COPY --from=NODE_BUILD /bililive-go/ /go/src/github.com/hr3lxphr6j/bililive-go/
 
-RUN apk update && \
-    apk add git make bash && \
-    go get github.com/rakyll/statik && \
+RUN apk update && apk add strace
+RUN strace -f apk add git make bash
+RUN go get github.com/rakyll/statik && \
     go get github.com/golang/mock/mockgen && \
     cd /go/src/github.com/hr3lxphr6j/bililive-go && \
     make generate bililive && \
