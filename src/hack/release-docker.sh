@@ -20,6 +20,5 @@ docker buildx build \
   -t $IMAGE_TAG $(add_latest_tag) \
   --build-arg "tag=${VERSION}" \
   --progress plain \
-  --no-cache \
   --push \
   ./

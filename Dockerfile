@@ -1,7 +1,7 @@
 # Build Frontend Start
 
 # NOTE: Yarn has problems executing on ARM, so build on x86.
-FROM --platform=$BUILDPLATFORM node:15.5.1-alpine as NODE_BUILD
+FROM --platform=linux/amd64 node:15.5.1-alpine as NODE_BUILD
 
 ARG BUILDPLATFORM
 ARG TARGETPLATFORM
